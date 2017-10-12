@@ -67,6 +67,6 @@ class User(Base):
   username=Column(String(64),nullable=False,index=True)
   password=Column(String(64),nullable=False)
   email=Column(String(64),nullable=False,index=True)
-  def__repr__(self):
-       return'%s(%r)' % (self.__class__.__name__,self.username)
+     def __repr__(self):
+        return '%s(%r)' % (self.__class__.__name__, self.username)
 Base.metadata.create_all(engine)
