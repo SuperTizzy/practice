@@ -53,3 +53,20 @@ def to_timestamp(dt_str,tz_str):
 t1 = to_timestamp('2015-6-1 08:10:30', 'UTC+7:00')
 t2 = to_timestamp('2015-5-31 16:10:30', 'UTC-09:00')
 #以上代码仅考虑了有31天的月份，还不完善
+
+
+#coding: utf-8
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import Colum,String,Integer
+engine=create_engine('mysql+mysqldb://root@localhost:3306/blog?charest=utf8')
+Base=declarative_base()
+class User(Base):
+  __tablename__='users'
+  id=Column(Integer,primary_key=True)
+  username=Column(String(64),nullable=False,index=True)
+  password=Column(String(64),nullable=False)
+  email=Column(String(64),nullable=False,index=True)
+  def__repr__(self):
+       return'%s(%r)' % (self.__class__.__name__,self.username)
+Base.metadata.create_all(engine)
