@@ -69,3 +69,4 @@ class User(Base):
   def __repr__(self):
         return '%s(%r)' % (self.__class__.__name__, self.username)
 Base.metadata.create_all(engine)
+
